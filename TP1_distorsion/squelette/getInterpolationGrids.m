@@ -11,11 +11,11 @@ m_focal_ideal = 1;
 for i = 1:h_ideal
     for j = 1:w_ideal
         
-        p_ = [ i ; j ; 1];                           %tu prends l'image idéal ou y'a rien
-        p_d = K_reel* distortion(inv(K_ideal)*p_, k);%et tu regarde ce que ses points donnents en image reel distordu
-        
-        XI(i,j) = p_d(1);                            %stock les coordonnées des points de l'image réelle distordu
-        YI(i,j) = p_d(2);
+        p_ = [ i ; j ; 1];                        %tu prends l'image idéal ou y'a rien
+        p_d = K_reel* distortion(K_ideal\p_, k); %et tu regarde ce que ses points donnents en image reel distordu
+        %mieux computing        %inv(A)*B = A\B 
+        XI(i,j) = p_d(2);                         %stock les coordonnées des points de l'image réelle distordu
+        YI(i,j) = p_d(1);
         
         
     end
