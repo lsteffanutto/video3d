@@ -4,18 +4,19 @@ function [XI,YI] = getInterpolationGrids(K_reel, k, K_ideal, h_ideal, w_ideal)
 
 XI = zeros(h_ideal,w_ideal); %stock coordonnes X
 YI = zeros(h_ideal,w_ideal); %stock coordonnes Y
-m_focal_ideal = 1;
 
 %parcourimage corrigé, p_ = coord pixel = [x;y;1] = coordonnés pixel image corrigé
 
-for i = 1:h_ideal
-    for j = 1:w_ideal
+for y = 1:h_ideal
+    for x = 1:w_ideal
         
-        p_ = [ i ; j ; 1];                        %tu prends l'image idéal ou y'a rien
-        p_d = K_reel* distortion(K_ideal\p_, k); %et tu regarde ce que ses points donnents en image reel distordu
+        p_ = [ x ; y ; 1];                        %tu prends l'image idéal ou y'a rien
+        m_focal_ideal = K_ideal\p_; 
+        p_d = K_reel* distortion(m_focal_ideal, k); %et tu regarde ce que ses points donnents en image reel distordu
         %mieux computing        %inv(A)*B = A\B 
-        XI(i,j) = p_d(2);                         %stock les coordonnées des points de l'image réelle distordu
-        YI(i,j) = p_d(1);
+        YI(y,x) = p_d(1);       % j'inverse le (x,y) ca tourne de 90�
+        XI(y,x) = p_d(2);       %stock les coordonnées des points de l'image réelle distordu
+        
         
         
     end

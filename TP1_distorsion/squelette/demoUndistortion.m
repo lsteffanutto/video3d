@@ -15,7 +15,7 @@ k{2} = calibParam.xi;
 
 %% get interpolation grids
 
-% [XI ,YI] = getInterpolationGrids(K_reel, k, K_ideal, h_ideal, w_ideal);
+[XI ,YI] = getInterpolationGrids(K_reel, k, K_ideal, h_ideal, w_ideal);
 
 %% load image to undistort
 Idist = double(imread('videoframe-3.bmp'))/255;
