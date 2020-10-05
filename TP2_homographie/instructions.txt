@@ -1,0 +1,5 @@
+Ecrire un script qui effectue les étapes suivantes:
+
+- Afficher 'image1.jpg' et cliquer sur les 4 coins de la feuille (fonction ginput en Matlab)
+- Calculer l'homographie (avec l'algorithme DLT) qui permet de rectifier la feuille, c'est à dire d'obtenir une image où la feuille est fronto-parallèle (les lignes de la feuille sont horizontales et l'image rectifiée ressemble à un "pdf")
+- Appliquer l'homographie pour rectifier 'image1.jpg' (fonction interp2)
