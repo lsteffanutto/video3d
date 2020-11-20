@@ -1,0 +1,17 @@
+----------------------------------------------------
+   Instructions pour le TP "Semi-Global Matching"
+----------------------------------------------------
+
+1) Lire l'article de Drory et al. intitulé "Semi-Global Matching: a principled derivation in terms of Message Passing", en particulier la partie 2.4 et l'équation 8 qui résume l'approche. Vous pouvez également lire l'article de blog http://lunokhod.org/?p=1356 qui vulgarise très bien l'approche.
+
+2) Implémenter la méthode en Matlab en utilisant comme "scanline" dans un premier temps uniquement les lignes. Comme "pairwise term" vous pourrez utiliser la fonction alpha * abs(d_p - d_q) où alpha est un facteur qui permet de pondérer la régularisation (plus alpha est grand, plus la carte de disparité sera lisse). Un script Matlab calculant les "unary terms" vous est fourni.
+
+3) Implémenter la méthode en Matlab en utilisant comme "scanline" uniquement les colonnes.
+
+4) Implémenter la méthode en Matlab en utilisant comme "scanline" les lignes et les colonnes.
+
+Remarque :
+Pour tester votre méthode, deux images vous sont fournies ainsi que leurs vraies cartes de disparité.
+
+
+
